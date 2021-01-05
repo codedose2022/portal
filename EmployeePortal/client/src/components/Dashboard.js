@@ -1,21 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React from 'react';
 import Navbar from './Navbar'
 import TabsComponent from './TabsComponent'
+import useStyles from './CommonStyles';
 
 
 
 
 export default function Dashboard() {
+    const classes = useStyles();
     return (
         <div>
         <Navbar/>
-
-        <div style={{paddingTop:'20px'}}>
+        <div className={classes.topPadding}/>
         <TabsComponent/>
-        </div>
-
-       
+     
 
         </div>
     )

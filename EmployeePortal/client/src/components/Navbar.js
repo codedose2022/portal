@@ -1,6 +1,6 @@
 import React,{ useState,useEffect,useRef} from 'react'
 import { AppBar,Toolbar,Typography,Button,IconButton,Hidden,Badge,MenuItem,
-  Menu, Popper,MenuList, Divider  } from '@material-ui/core';
+  Menu, Popper,MenuList, Divider, Card, Container  } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import useStyles from './NavbarStyles.js';
@@ -26,8 +26,8 @@ export default function Navbar() {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
+
   };
   function handleListKeyDown(event) {
     if (event.key === 'Tab') {
@@ -38,8 +38,6 @@ export default function Navbar() {
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = useRef(open);
-  
- 
   useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
@@ -82,17 +80,20 @@ export default function Navbar() {
         
         </Toolbar>
       </AppBar>
-      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+      <Popper open={open} anchorEl={anchorRef.current} transition >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
-              <Paper>
+              <Paper elevation={10} >
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                
                     <MenuItem onClick={handleClose}>My Profile</MenuItem>
+                    <Divider/>
                     <MenuItem onClick={handleClose}>Change password</MenuItem>
+                    <Divider/>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
