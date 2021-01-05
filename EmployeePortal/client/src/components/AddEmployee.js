@@ -54,6 +54,24 @@ return(
                     variant="outlined"
                 />
                 </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                <TextField
+				fullWidth
+                    id="outlined-read-only-input"
+                    label="Employee Code"
+                    defaultValue="E1234"
+                    variant="outlined"
+                />
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                <TextField
+				fullWidth
+                    id="outlined-read-only-input"
+                    label="Employee Code"
+                    defaultValue="E1234"
+                    variant="outlined"
+                />
+                </Grid>
                 </Grid>
             </Grid>   
 		</Paper>
